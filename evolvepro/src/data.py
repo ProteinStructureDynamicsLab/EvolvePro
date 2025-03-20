@@ -259,6 +259,8 @@ def create_csv(df_test , df_reference , number_of_variants , round_file_names , 
         df_reference: reference df with experimental scores
         number_of_variants: number of variants to be tested
         for each round
+        round_file_names: list of round files from script_evoex.py
+        next_file_name: file name for the next input file
         *should add some other args?*
     Returns:
         input csv round files stored in round file path
@@ -283,8 +285,5 @@ def create_csv(df_test , df_reference , number_of_variants , round_file_names , 
     #save csv in folder
     file_path = os.path.join(round_base_path , next_file_name)
     df1[['Variant', 'activity']].to_csv(file_path , index=False)
-    
-    #add new file to round_file_names list
-    round_file_names.append(next_file_name)
 
     return df1[['Variant', 'activity']]
