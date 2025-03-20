@@ -115,7 +115,7 @@ def load_experimental_data(base_path: str, round_file_name: str, wt_fasta_path: 
     """
     # Load experimental data
     file_path = os.path.join(base_path, round_file_name)
-    df = pd.read_excel(file_path)
+    df = pd.read_csv(file_path)
 
     # Load wild-type sequence
     WT_sequence = str(SeqIO.read(wt_fasta_path, "fasta").seq)
