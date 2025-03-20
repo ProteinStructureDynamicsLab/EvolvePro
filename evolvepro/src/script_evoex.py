@@ -15,18 +15,18 @@ first_round_file = 'protein_name_Round1.csv file (user-defined)'
 for i in range(iteration):
 
 	if i == 0 :
-	round_name = 'Round1'
-	round_file_names = [first_round_file]
+	    round_name = 'Round1'
+	    round_file_names = [first_round_file]
 	
-	rename_WT = False
+	    rename_WT = False
 	
 	else:
 
-	# Single variant
-	round_name = f'Round{i+1}'
-	round_file_names = []
+	    # Single variant
+	    round_name = f'Round{i+1}'
+	    round_file_names = []
 
-	rename_WT = False
+	    rename_WT = False
 
 	evolve_experimental(
 	    protein_name,
@@ -43,6 +43,8 @@ for i in range(iteration):
 
 	path_to_output = os.path.join((output_dir, protein_name, round_name , 'df_test.csv'))
 
-	next_round_name = f'{protein_name}_Round{i+2}'
+	next_file_name = f'{protein_name}_Round{i+2}'
 
-    create_csv(path_to_output , reference_file , number_of_variants , round_file_names , next_round_name)
+    create_csv(path_to_output , reference_file , number_of_variants , round_file_names , next_file_name)
+
+    round_file_names.append(next_file_name)
