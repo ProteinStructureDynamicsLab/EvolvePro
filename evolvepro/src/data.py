@@ -248,7 +248,7 @@ def add_missing_variants(df: pd.DataFrame, expected_variants: List[str]) -> pd.D
     })
     return pd.concat([df, missing_df], ignore_index=True)
 
-def create_csv(df_test , df_reference , number_of_variants ):
+def create_csv(df_test , df_reference , number_of_variants , round_file_names ):
     """
     Customized function
     
