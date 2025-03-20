@@ -10,12 +10,13 @@ wt_fasta_path = 'path/to/wt/fasta'
 number_of_variants = 'variants_per_round(int)'
 output_dir = 'path/to/output/'
 reference_file = 'path/to/file'
+first_round_file = 'protein_name_Round1.csv file (user-defined)'
 
 for i in range(iteration):
 
 	if i == 0 :
 	round_name = 'Round1'
-	round_file_names = [f"{protein_name}_Round1.csv"]
+	round_file_names = [first_round_file]
 	
 	rename_WT = False
 	
@@ -44,4 +45,4 @@ for i in range(iteration):
 
 	next_round_name = f'{protein_name}_Round{i+2}'
 
-	create_csv(path_to_output , reference_file , number_of_variants , round_file_names , next_round_name)
+    create_csv(path_to_output , reference_file , number_of_variants , round_file_names , next_round_name)
