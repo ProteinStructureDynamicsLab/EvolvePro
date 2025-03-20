@@ -247,3 +247,44 @@ def add_missing_variants(df: pd.DataFrame, expected_variants: List[str]) -> pd.D
         'iteration': np.nan
     })
     return pd.concat([df, missing_df], ignore_index=True)
+
+def create_csv(df_test , df_reference , number_of_variants ):
+    """
+    Customized function
+    
+    Automatically creates input round files
+
+    Args: 
+        df_test: output csv from evolve_experimental funct
+        df_reference: reference df with experimental scores
+        number_of_variants: number of variants to be tested
+        for each round
+        *should add some other args?*
+    Returns:
+        input csv round files stored in round file path
+
+    """
+
+    df1 = pd.read_csv(df_test)
+    df2 = pd.read_csv(df_reference)
+
+    top_10_variants = df1['variant'].head(number_of_variants + 1)
+
+    # Search to obtain scores in reference dataframe
+    merged_df = df2[df2['hgvs_pro'].isin(top_10_variants)]
+
+    # Create new dataframe with 'variant' and 'score' columns
+    df1['score'] = df1['variant'].map(merged_df.set_index('hgvs_pro')['score'])
+    df1 = df1.rename(columns={'variant': 'Variant' , 'score': 'activity'})
+
+    #slice first letter of the variant column
+    df1['Variant'] = df1['Variant'].str[1:]
+
+    #save csv in folder
+    file_path = os.path.join(round_base_path , round_file_name)
+    df1[['Variant', 'activity']].to_csv(file_path , index=False)
+    
+    #add new file to round_file_names list
+    round_file_names.append(round_file_name)
+
+    return df1[['Variant', 'activity']]
