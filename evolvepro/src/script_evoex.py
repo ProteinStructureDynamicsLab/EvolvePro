@@ -11,12 +11,13 @@ number_of_variants = 'variants_per_round(int)'
 output_dir = 'path/to/output/'
 reference_file = 'path/to/file'
 first_round_file = 'protein_name_Round1.csv file (user-defined)'
+round_file_names = []
 
 for i in range(0, iteration):
 
 	if i == 0 :
 	    round_name = 'Round1'
-	    round_file_names = [first_round_file]
+	    round_file_names.append(first_round_file)
 	
 	    rename_WT = False
 	
@@ -24,8 +25,7 @@ for i in range(0, iteration):
 
 	    # Single variant
 	    round_name = f'Round{i+1}'
-	    round_file_names = []
-
+	    
 	    rename_WT = False
 
 	evolve_experimental(
