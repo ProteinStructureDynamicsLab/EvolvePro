@@ -12,7 +12,7 @@ output_dir = 'path/to/output/'
 reference_file = 'path/to/file'
 first_round_file = 'protein_name_Round1.csv file (user-defined)'
 
-for i in range(iteration):
+for i in range(0, iteration):
 
 	if i == 0 :
 	    round_name = 'Round1'
@@ -47,4 +47,4 @@ for i in range(iteration):
 
     create_csv(path_to_output , reference_file , number_of_variants , round_file_names , next_file_name)
 
-    round_file_names.append(next_file_name)
+    round_file_names.append(next_file_name + '.csv')
