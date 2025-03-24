@@ -41,10 +41,10 @@ for i in range(0, iteration):
 	    output_dir
 	)
 
-	path_to_output = os.path.join((output_dir, protein_name, round_name , 'df_test.csv'))
+	path_to_output = os.path.join(output_dir, protein_name, round_name , 'df_test.csv')
 
-	next_file_name = f'{protein_name}_Round{i+2}'
+	next_file_name = f'{protein_name}_Round{i+2}.csv'
 
-    create_csv(path_to_output , reference_file , number_of_variants , round_file_names , next_file_name)
+    create_csv(path_to_output , reference_file , number_of_variants , round_file_names , next_file_name , round_base_path)
 
-    round_file_names.append(next_file_name + '.csv')
+    round_file_names.append(next_file_name)
