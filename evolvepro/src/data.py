@@ -248,7 +248,7 @@ def add_missing_variants(df: pd.DataFrame, expected_variants: List[str]) -> pd.D
     })
     return pd.concat([df, missing_df], ignore_index=True)
 
-def create_csv(df_test , df_reference , number_of_variants , round_file_names , next_file_name ):
+def create_csv(df_test , df_reference , number_of_variants , round_file_names , next_file_name , round_base_path):
     """
     Customized function
     
@@ -281,7 +281,10 @@ def create_csv(df_test , df_reference , number_of_variants , round_file_names , 
 
     #slice first letter of the variant column
     df1['Variant'] = df1['Variant'].str[1:]
-
+    
+    # Filtering dataframe to get the top 10 variants
+    df1 = df1.head(number_of_variants)
+    
     #save csv in folder
     file_path = os.path.join(round_base_path , next_file_name)
     df1[['Variant', 'activity']].to_csv(file_path , index=False)
