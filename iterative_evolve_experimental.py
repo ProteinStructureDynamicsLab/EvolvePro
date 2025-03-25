@@ -2,19 +2,7 @@ from evolvepro.src.evolve import evolve_experimental, evolve_experimental_multi
 from evolvepro.src.data import create_csv
 import os
 
-
-iteration = 10
-protein_name = 'GPR68'
-embeddings_base_path = './EvolvePro/TEST/GPRTEST/embeddings'
-embeddings_file_name = 'GPR68_esm1b_t33_650M_UR50S.csv'
-round_base_path = './EvolvePro/TEST/GPRTEST/rounds'
-wt_fasta_path = './EvolvePro/TEST/GPRTEST/fasta/GPR68_WT.fasta'
-number_of_variants = 10
-output_dir = './EvolvePro/TEST/GPRTEST/output'
-reference_file = 'gpr68_ref.csv'
-first_round_file = 'GPR68_Round1.csv'
-round_file_names = []
-'''
+"""
     Arguments in function: 
     iteration: number of iterations desired (always an integer)
     protein_name: name of the protein analyzed. Creates a folder with the same name in the path selected for the output data
@@ -27,7 +15,20 @@ round_file_names = []
     reference_file: this is the reference file with experimental scores, parsed to be readable by the program. (always a csv)
     first_round_file: this is the first round file, user-defined and made by hand. in this file you should write the variants suggested in the random step.
     round_file_names: just a list of round file names. Used to automatize iterations. Do not fill.
-'''
+"""
+
+iteration = 10
+protein_name = 'GPR68'
+embeddings_base_path = './EvolvePro/TEST/GPRTEST/embeddings'
+embeddings_file_name = 'GPR68_esm1b_t33_650M_UR50S.csv'
+round_base_path = './EvolvePro/TEST/GPRTEST/rounds'
+wt_fasta_path = './EvolvePro/TEST/GPRTEST/fasta/GPR68_WT.fasta'
+number_of_variants = 10
+output_dir = './EvolvePro/TEST/GPRTEST/output'
+reference_file = 'gpr68_ref.csv'
+first_round_file = 'GPR68_Round1.csv'
+round_file_names = []
+
 
 #this loop uses the user-defined file for the first round, then uses the created files to carry on iterations.
 
