@@ -15,7 +15,7 @@ reference_file = 'gpr68_ref.csv'
 first_round_file = 'GPR68_Round1.csv'
 round_file_names = []
 '''
-    Arguments in function:
+    Arguments in function: 
     iteration: number of iterations desired (always an integer)
     protein_name: name of the protein analyzed. Creates a folder with the same name in the path selected for the output data
     embeddings_base_path: folder containing embeddings file
