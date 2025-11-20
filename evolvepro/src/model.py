@@ -203,12 +203,12 @@ def top_layer(iter_train, iter_test, embeddings_pd, labels_pd, measured_var, reg
     this_round_variants = df_train.variant
 
     # Calculate additional metrics
-    median_activity_scaled = df_sorted_all.loc[:final_round, 'y_actual_scaled'].median()
-    top_activity_scaled = df_sorted_all.loc[:final_round, 'y_actual_scaled'].max()
-    top_variant = df_sorted_all.loc[df_sorted_all['y_actual_scaled'] == top_activity_scaled, 'variant'].values[0]
-    top_final_round_variants = ",".join(df_sorted_all.loc[:final_round, 'variant'].tolist())
-    spearman_corr = df_sorted_all[['y_pred', 'y_actual']].corr(method='spearman').iloc[0, 1]
-    activity_binary_percentage = df_sorted_all.loc[:final_round, 'y_actual_binary'].mean()
+    #median_activity_scaled = df_sorted_all.loc[:final_round, 'y_actual_scaled'].median()
+    #top_activity_scaled = df_sorted_all.loc[:final_round, 'y_actual_scaled'].max()
+    #top_variant = df_sorted_all.loc[df_sorted_all['y_actual_scaled'] == top_activity_scaled, 'variant'].values[0]
+    #top_final_round_variants = ",".join(df_sorted_all.loc[:final_round, 'variant'].tolist())
+    #spearman_corr = df_sorted_all[['y_pred', 'y_actual']].corr(method='spearman').iloc[0, 1]
+    #activity_binary_percentage = df_sorted_all.loc[:final_round, 'y_actual_binary'].mean()
 
     if experimental:
         return this_round_variants, df_test, df_sorted_all
