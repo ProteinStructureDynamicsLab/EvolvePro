@@ -150,7 +150,7 @@ def top_layer(iter_train, iter_test, embeddings_pd, labels_pd, measured_var, reg
                              verbose=False, warm_start=False, early_stopping=False, validation_fraction=0.1, beta_1=0.9,
                              beta_2=0.999, epsilon=1e-08)
     elif regression_type == 'randomforest':
-        model = RandomForestRegressor(n_estimators=100, criterion='friedman_mse', max_depth=None, min_samples_split=2,
+        model = RandomForestRegressor(n_estimators=1000, criterion='friedman_mse', max_depth=None, min_samples_split=2,
                                       min_samples_leaf=1, min_weight_fraction_leaf=0.0, max_features=1.0,
                                       max_leaf_nodes=None, min_impurity_decrease=0.0, bootstrap=True, oob_score=False,
                                       n_jobs=None, random_state=1, verbose=0, warm_start=False, ccp_alpha=0.0,
